@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mymajors</title>
+</head>
+<style>
+    main {
+        font-family: 'Arial', sans-serif;
+        display: flex; /* Use flex container */
+    }
+    .banner img {
+        width: 100%;
+        height: auto;
+        margin-top: 30px;
+        position: relative;
+    }
+    .sidebar {
+        float: left;
+        width: 20%;
+        padding: 20px;
+        order: -1;
+    }
+
+    .main{
+        padding: 20px;
+        float: right;
+        width: 80%;
+        text-align: center;
+    }
+
+    nav{
+        position: fixed;
+        top: 0;
+        left:0;
+        right:0;
+        float:right;
+        padding: 20px;
+        background-color:  #333;
+        width: 100%;
+        max-height: 70px;
+        text-decoration: none;
+        color: white;
+    }
+    .name
+    {
+        float: left;
+        font-size: 40px;
+    }
+
+    .nav-text
+    {
+        float: right;
+        padding-right: 50px;
+        color: white;
+        text-decoration: none;
+        :hover{
+            color: hotpink;
+        }
+        :link
+        {
+            text-decoration: none;
+        }
+    }
+    nav ul {
+        list-style: none;
+        text-align: center;
+    }
+
+    nav ul li {
+        display: inline;
+        margin-right: 20px;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: white;
+    }
+    .social-media a {
+        color: white;
+        margin: 0 10px;
+        text-decoration: none;
+    }
+    .social-media :hover{
+        color:hotpink;
+    }
+    footer {
+        clear: both;
+        background: #333;
+        color: white;
+        text-align: center;
+        padding: 10px;
+    }
+    .sidebar li a{
+        text-decoration: none;
+        color: black;
+    }
+    .sidebar li a:hover{
+        color: hotpink;
+    }
+    .list{
+        text-align: left;
+    }
+</style>
+</head>
+<body>
+<div class="banner">
+    <img src="IMG_17E3B6707927-1.jpeg" alt="banner">
+</div>
+<nav>
+    <div class="name">Delaney Benjamin</div>
+    <div class="nav-text">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="album.html">Album</a></li>
+            <li> <a href="clubs.html">Experience</a></li>
+            <li> <a href="mymajors.html">Education</a></li>
+            <li> <a href="resume.html">Resume</a></li>
+            <li> <a href="weblinks.html">Links</a></li>
+        </ul>
+    </div>
+</nav>
+<main>
+    <div class="main">
+        <h2>The Pennsylvania State University</h2>
+        <h3>College of Information Sciences and Technology</h3>
+        <h1>Human Centered Design and Development</h1>
+        <br>
+        <div class="list">
+        <h3>Classes Taken:</h3>
+        <ul>
+            <li>IST140: Introduction to Application Development</li>
+            <li>IST242: Intermediate Object-Oriented Application Development</li>
+            <li>IST261: Application Development Studio I</li>
+            <li>IST210: Organization of Data</li>
+            <li>IST220: Networking and Telecommunications</li>
+            <li>IST256: Programming for the Web</li>
+            <li>HCDD113S: Foundations of Human Centered Design and Development</li>
+            <li>HCDD264: Design Practice in Human Centered Design and Development</li>
+            <li>MATH110: Tech Calculus</li>
+            <li>STAT 200: Elementary Statistics</li>
+            <li>LDT 100: World Technologies and Learning</li>
+            <li>PSYCH100: Introductory Psychology</li>
+            <li>ENGL15: Rhetoric and Composition</li>
+            <li>COMM118: Introduction to Media Effects</li>
+            <li>COMM100N: The Mass Media and Society</li>
+            <li>CAS101N: Introduction to Human Communication</li>
+            <li>ASTRO7N: The Artistic Universe</li>
+            <li>METEO5: Severe and Unusual Weather</li>
+            <li>ANTH140: Anthropology of Alcohol</li>
+            <li>EGEE101: Energy and the Environment</li>
+        </ul>
+        <h3>Skills:</h3>
+        <ul>
+            <li>Java</li>
+            <li>SQL</li>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>Figma</li>
+        </ul>
+        </div>
+    </div>
+    <div class="sidebar">
+        <h2>Contact me</h2>
+        <form id="fs-frm" name="simple-contact-form" accept-charset="utf-8" action="https://formspree.io/f/mrgnkbdz" method="post">
+            <fieldset id="fs-frm-inputs">
+                <div class="form-group">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" class="form-control" name="name" id="full-name" placeholder="First and Last" required="">
+                </div>
+                <div class="form-group">
+                    <label for="email-address">Email Address</label>
+                    <input type="email" class="form-control" name="_replyto" id="email-address" placeholder="sample@email.com" required="">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea class="form-control" rows="5" name="message" id="message" placeholder="Your Message" required=""></textarea>
+                </div>
+                <input type="hidden" name="_subject" id="email-subject" value="Contact Form Submission">
+            </fieldset>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <div id="apiDisplay">
+            <script>
+                const div= document.getElementById('apiDisplay');
+                const url= 'https://icanhazdadjoke.com/'
+
+                const headers = new Headers({
+                    'accept': 'application/json'
+                })
+                fetch(url, {headers})
+                    .then((response) => {
+                        return response.json();
+                    })
+                    .then((data)=> {
+                        console.log(data);
+                        let p = document.createElement('p');
+                        p.innerHTML = `${data.joke}`
+                        div.appendChild(p);
+                    })
+                    .catch(function (error){
+                        console.log(error);
+                    });
+            </script>
+        </div>
+    </div>
+</main>
+<footer>
+    <p>&copy; 2024 Delaney Benjamin. All rights reserved.</p>
+    <div class="social-media">
+        <a href="https://www.facebook.com/delaney.benjamin.14/" target="_blank">Facebook</a>
+        <a href="https://www.linkedin.com/in/delaney-benjamin/" target="_blank">LinkedIn</a>
+        <a href="https://www.instagram.com/delaney.benjamin/" target="_blank">Instagram</a>
+    </div>
+</footer>
+</body>
+</html>
